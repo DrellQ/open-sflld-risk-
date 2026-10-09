@@ -1,0 +1,29 @@
+                  ┌────────────────────────────────────────────────────────┐
+                  │ 1. Trained Stage 1 XGBoost Model (PD Engine)           │
+                  └──────────────────────────┬─────────────────────────────┘
+                                             │
+                      Scored against stressed macro cohorts
+                                             │
+                                             ▼
+┌────────────────────────────────────────┐       ┌────────────────────────────────────────┐
+│ A. GFC Anchor (2006–2008)              │       │ B. Rate Shock (2021–2022)              │
+│    • Severe systemic credit freeze     │       │    • Modern balance-sheet exposure     │
+│    • Calibrates Downturn LGD (μ, σ)    │       │    • Payment shock & lock-in drift     │
+└───────────────────┬────────────────────┘       └───────────────────┬────────────────────┘
+                    │                                                │
+                    │ Stressed LGD Parameters                        │ Exposure (UPB) & PDs
+                    └───────────────────────┬────────────────────────┘
+                                            │
+                                            ▼
+                  ┌────────────────────────────────────────────────────────┐
+                  │ 2. Monte Carlo Portfolio VaR Simulation Engine         │
+                  │    Loss = Σ (Bernoulli(PD_i) * UPB_i * Drawn_LGD)      │
+                  └─────────────────────────┬──────────────────────────────┘
+                                            │
+                                            ▼
+                  ┌────────────────────────────────────────────────────────┐
+                  │ 3. Economic Capital & Tail Risk Metrics                │
+                  │    • Expected Loss (EL)                                │
+                  │    • 95.0%, 99.0%, 99.9% VaR (Unexpected Loss)         │
+                  │    • 99.0% Expected Shortfall (CVaR)                   │
+                  └────────────────────────────────────────────────────────┘
