@@ -1,0 +1,94 @@
+Audit Execution Timestamp: 2026-10-09 13:23:58
+Target Input Path        : /Users/derrellquartey/Documents/SFLLD Modeling/parquet_output/Out_Of_Time_2018_2019
+Audit Report Log         : /Users/derrellquartey/Documents/SFLLD Modeling/data validation reports/audit_report_Out_Of_Time_2018_2019_20261009_132358.txt
+
+
+================================================================================
+AUDITING FILE: vintage_2018.parquet (Identified Vintage: 2018 | Era: Pre-Pandemic / COVID Shock)
+================================================================================
+[*] Ingested Records: 1,128,157
+
+--- [1] Structural & Key Completeness ---
+ [PASS] 100% Unique Primary Keys (1,128,157 unique loans)
+
+--- [2] Forward 12M Credit Target Performance ---
+  • Realized Defaults : 27,120
+  • Default Rate (12M): 2.404%
+  • Expected Range    : [0.50%, 3.50%]
+ [PASS] Default rate conforms to Pre-Pandemic / COVID Shock historical distribution.
+
+  Target Attribution Breakdown:
+    - PERFORMING_OR_PREPAID   :  1,101,037 loans (0.0% y_target)
+    - DQ_GE_3                 :     27,071 loans (100.0% y_target)
+    - DQ_AND_ZERO_BALANCE     :         49 loans (100.0% y_target)
+
+--- [3] Observation Time (t=12) State Cleanliness ---
+ [PASS] Observation snapshot is clean (zero pre-existing D90+ loans).
+ [PASS] Amortization constraint satisfied (snapshot UPB <= original UPB).
+
+--- [4] Underwriting Field Distributions & Sentinel Code Audit ---
+  • FICO Sentinel / Missing Count: 328 (0.03%) [Tolerance: <5.0%]
+  • LTV  Sentinel / Missing Count: 16 (0.00%) [Tolerance: <5.0%]
+  • DTI  Sentinel / Missing Count: 12,294 (1.09%) [Tolerance: <5.0%]
+  • FICO Mean: 745.8 | Median: 753.0 | Min: 427 | Max: 850 [Bounds: 500-780]
+  • LTV  Mean: 76.2% | Median: 80.0% | Min: 4.0% | Max: 514.0% [Bounds: 50-85%]
+  • DTI  Mean: 35.8% | Median: 37.0% | Min: 1.0% | Max: 51.0% [Bounds: 20-45%]
+  • Note Rate Mean: 4.72% | Min: 2.38% | Max: 7.00%
+
+--- [5] Dynamic Performance & Recovery Fields Audit ---
+  • Loans Modified by Month 12: 2 (0.000%)
+  • Default Events with Populated Actual Loss: 48 / 27,120
+  • Mean Realized Dollar Loss: $24,093.11
+  • Max Realized Dollar Loss : $143,577.00
+
+================================================================================
+VERDICT: [PASSED ALL GATES] vintage_2018.parquet is production-ready for Stage 1 modeling.
+================================================================================
+
+================================================================================
+AUDITING FILE: vintage_2019.parquet (Identified Vintage: 2019 | Era: Pre-Pandemic / COVID Shock)
+================================================================================
+[*] Ingested Records: 1,372,894
+
+--- [1] Structural & Key Completeness ---
+ [PASS] 100% Unique Primary Keys (1,372,894 unique loans)
+
+--- [2] Forward 12M Credit Target Performance ---
+  • Realized Defaults : 30,168
+  • Default Rate (12M): 2.197%
+  • Expected Range    : [0.50%, 3.50%]
+ [PASS] Default rate conforms to Pre-Pandemic / COVID Shock historical distribution.
+
+  Target Attribution Breakdown:
+    - PERFORMING_OR_PREPAID   :  1,342,726 loans (0.0% y_target)
+    - DQ_GE_3                 :     30,156 loans (100.0% y_target)
+    - DQ_AND_ZERO_BALANCE     :         12 loans (100.0% y_target)
+
+--- [3] Observation Time (t=12) State Cleanliness ---
+ [PASS] Observation snapshot is clean (zero pre-existing D90+ loans).
+ [PASS] Amortization constraint satisfied (snapshot UPB <= original UPB).
+
+--- [4] Underwriting Field Distributions & Sentinel Code Audit ---
+  • FICO Sentinel / Missing Count: 599 (0.04%) [Tolerance: <5.0%]
+  • LTV  Sentinel / Missing Count: 0 (0.00%) [Tolerance: <5.0%]
+  • DTI  Sentinel / Missing Count: 1,121 (0.08%) [Tolerance: <5.0%]
+  • FICO Mean: 749.5 | Median: 757.0 | Min: 309 | Max: 839 [Bounds: 500-780]
+  • LTV  Mean: 75.7% | Median: 80.0% | Min: 4.0% | Max: 194.0% [Bounds: 50-85%]
+  • DTI  Mean: 35.1% | Median: 36.0% | Min: 1.0% | Max: 61.0% [Bounds: 20-45%]
+  • Note Rate Mean: 4.15% | Min: 2.00% | Max: 7.00%
+
+--- [5] Dynamic Performance & Recovery Fields Audit ---
+  • Loans Modified by Month 12: 0 (0.000%)
+  • Default Events with Populated Actual Loss: 10 / 30,168
+  • Mean Realized Dollar Loss: $72,503.82
+  • Max Realized Dollar Loss : $314,100.91
+
+================================================================================
+VERDICT: [PASSED ALL GATES] vintage_2019.parquet is production-ready for Stage 1 modeling.
+================================================================================
+
+################################################################################
+FINAL AUDIT SUMMARY: ALL 2 PARQUET VINTAGES PASSED GOVERNANCE CHECKS.
+Saved full report to: /Users/derrellquartey/Documents/SFLLD Modeling/data validation reports/audit_report_Out_Of_Time_2018_2019_20261009_132358.txt
+################################################################################
+

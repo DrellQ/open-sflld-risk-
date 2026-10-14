@@ -1,0 +1,225 @@
+Audit Execution Timestamp: 2026-10-09 13:16:57
+Target Input Path        : /Users/derrellquartey/Documents/SFLLD Modeling/parquet_output/Post_Crisis_2013_2017
+Audit Report Log         : /Users/derrellquartey/Documents/SFLLD Modeling/data validation reports/audit_report_Post_Crisis_2013_2017_20261009_131657.txt
+
+
+================================================================================
+AUDITING FILE: vintage_2013.parquet (Identified Vintage: 2013 | Era: Post-Crisis CRT)
+================================================================================
+[*] Ingested Records: 1,742,029
+
+--- [1] Structural & Key Completeness ---
+ [PASS] 100% Unique Primary Keys (1,742,029 unique loans)
+
+--- [2] Forward 12M Credit Target Performance ---
+  • Realized Defaults : 6,738
+  • Default Rate (12M): 0.387%
+  • Expected Range    : [0.15%, 0.80%]
+ [PASS] Default rate conforms to Post-Crisis CRT historical distribution.
+
+  Target Attribution Breakdown:
+    - PERFORMING_OR_PREPAID   :  1,735,291 loans (0.0% y_target)
+    - DQ_GE_3                 :      6,237 loans (100.0% y_target)
+    - DQ_AND_ZERO_BALANCE     :        478 loans (100.0% y_target)
+    - ZERO_BALANCE_EVENT      :         23 loans (100.0% y_target)
+
+--- [3] Observation Time (t=12) State Cleanliness ---
+ [PASS] Observation snapshot is clean (zero pre-existing D90+ loans).
+ [PASS] Amortization constraint satisfied (snapshot UPB <= original UPB).
+
+--- [4] Underwriting Field Distributions & Sentinel Code Audit ---
+  • FICO Sentinel / Missing Count: 112 (0.01%)
+  • LTV  Sentinel / Missing Count: 33 (0.00%)
+  • DTI  Sentinel / Missing Count: 534,454 (30.68%)
+  • FICO Mean: 750.8 | Median: 764.0 | Min: 423 | Max: 840
+  • LTV  Mean: 75.4% | Median: 77.0% | Min: 1.0% | Max: 978.0%
+  • DTI  Mean: 32.0% | Median: 33.0% | Min: 1.0% | Max: 50.0%
+  • Note Rate Mean: 3.81% | Min: 2.00% | Max: 6.25%
+
+--- [5] Dynamic Performance & Recovery Fields Audit ---
+  • Loans Modified by Month 12: 7 (0.000%)
+  • Default Events with Populated Actual Loss: 492 / 6,738
+  • Mean Realized Dollar Loss: $47,985.46
+  • Max Realized Dollar Loss : $206,855.16
+
+================================================================================
+VERDICT: [PASSED ALL GATES] vintage_2013.parquet is production-ready for Stage 1 modeling.
+================================================================================
+
+================================================================================
+AUDITING FILE: vintage_2014.parquet (Identified Vintage: 2014 | Era: Post-Crisis CRT)
+================================================================================
+[*] Ingested Records: 1,026,568
+
+--- [1] Structural & Key Completeness ---
+ [PASS] 100% Unique Primary Keys (1,026,568 unique loans)
+
+--- [2] Forward 12M Credit Target Performance ---
+  • Realized Defaults : 4,163
+  • Default Rate (12M): 0.406%
+  • Expected Range    : [0.15%, 0.80%]
+ [PASS] Default rate conforms to Post-Crisis CRT historical distribution.
+
+  Target Attribution Breakdown:
+    - PERFORMING_OR_PREPAID   :  1,022,405 loans (0.0% y_target)
+    - DQ_GE_3                 :      3,958 loans (100.0% y_target)
+    - DQ_AND_ZERO_BALANCE     :        199 loans (100.0% y_target)
+    - ZERO_BALANCE_EVENT      :          6 loans (100.0% y_target)
+
+--- [3] Observation Time (t=12) State Cleanliness ---
+ [PASS] Observation snapshot is clean (zero pre-existing D90+ loans).
+ [PASS] Amortization constraint satisfied (snapshot UPB <= original UPB).
+
+--- [4] Underwriting Field Distributions & Sentinel Code Audit ---
+  • FICO Sentinel / Missing Count: 124 (0.01%)
+  • LTV  Sentinel / Missing Count: 23 (0.00%)
+  • DTI  Sentinel / Missing Count: 154,036 (15.00%)
+  • FICO Mean: 746.3 | Median: 756.0 | Min: 431 | Max: 846
+  • LTV  Mean: 75.6% | Median: 80.0% | Min: 3.0% | Max: 726.0%
+  • DTI  Mean: 33.7% | Median: 35.0% | Min: 1.0% | Max: 51.0%
+  • Note Rate Mean: 4.29% | Min: 2.00% | Max: 6.12%
+
+--- [5] Dynamic Performance & Recovery Fields Audit ---
+  • Loans Modified by Month 12: 5 (0.000%)
+  • Default Events with Populated Actual Loss: 205 / 4,163
+  • Mean Realized Dollar Loss: $41,911.59
+  • Max Realized Dollar Loss : $149,125.41
+
+================================================================================
+VERDICT: [PASSED ALL GATES] vintage_2014.parquet is production-ready for Stage 1 modeling.
+================================================================================
+
+================================================================================
+AUDITING FILE: vintage_2015.parquet (Identified Vintage: 2015 | Era: Post-Crisis CRT)
+================================================================================
+[*] Ingested Records: 1,334,820
+
+--- [1] Structural & Key Completeness ---
+ [PASS] 100% Unique Primary Keys (1,334,820 unique loans)
+
+--- [2] Forward 12M Credit Target Performance ---
+  • Realized Defaults : 4,861
+  • Default Rate (12M): 0.364%
+  • Expected Range    : [0.15%, 0.80%]
+ [PASS] Default rate conforms to Post-Crisis CRT historical distribution.
+
+  Target Attribution Breakdown:
+    - PERFORMING_OR_PREPAID   :  1,329,959 loans (0.0% y_target)
+    - DQ_GE_3                 :      4,741 loans (100.0% y_target)
+    - DQ_AND_ZERO_BALANCE     :        112 loans (100.0% y_target)
+    - ZERO_BALANCE_EVENT      :          8 loans (100.0% y_target)
+
+--- [3] Observation Time (t=12) State Cleanliness ---
+ [PASS] Observation snapshot is clean (zero pre-existing D90+ loans).
+ [PASS] Amortization constraint satisfied (snapshot UPB <= original UPB).
+
+--- [4] Underwriting Field Distributions & Sentinel Code Audit ---
+  • FICO Sentinel / Missing Count: 41 (0.00%)
+  • LTV  Sentinel / Missing Count: 23 (0.00%)
+  • DTI  Sentinel / Missing Count: 116,505 (8.73%)
+  • FICO Mean: 749.4 | Median: 759.0 | Min: 402 | Max: 844
+  • LTV  Mean: 73.6% | Median: 78.0% | Min: 1.0% | Max: 929.0%
+  • DTI  Mean: 33.7% | Median: 35.0% | Min: 1.0% | Max: 50.0%
+  • Note Rate Mean: 3.96% | Min: 2.00% | Max: 5.88%
+
+--- [5] Dynamic Performance & Recovery Fields Audit ---
+  • Loans Modified by Month 12: 6 (0.000%)
+  • Default Events with Populated Actual Loss: 118 / 4,861
+  • Mean Realized Dollar Loss: $34,077.02
+  • Max Realized Dollar Loss : $160,051.94
+
+================================================================================
+VERDICT: [PASSED ALL GATES] vintage_2015.parquet is production-ready for Stage 1 modeling.
+================================================================================
+
+================================================================================
+AUDITING FILE: vintage_2016.parquet (Identified Vintage: 2016 | Era: Post-Crisis CRT)
+================================================================================
+[*] Ingested Records: 1,587,123
+
+--- [1] Structural & Key Completeness ---
+ [PASS] 100% Unique Primary Keys (1,587,123 unique loans)
+
+--- [2] Forward 12M Credit Target Performance ---
+  • Realized Defaults : 8,759
+  • Default Rate (12M): 0.552%
+  • Expected Range    : [0.15%, 0.80%]
+ [PASS] Default rate conforms to Post-Crisis CRT historical distribution.
+
+  Target Attribution Breakdown:
+    - PERFORMING_OR_PREPAID   :  1,578,364 loans (0.0% y_target)
+    - DQ_GE_3                 :      8,675 loans (100.0% y_target)
+    - DQ_AND_ZERO_BALANCE     :         76 loans (100.0% y_target)
+    - ZERO_BALANCE_EVENT      :          8 loans (100.0% y_target)
+
+--- [3] Observation Time (t=12) State Cleanliness ---
+ [PASS] Observation snapshot is clean (zero pre-existing D90+ loans).
+ [PASS] Amortization constraint satisfied (snapshot UPB <= original UPB).
+
+--- [4] Underwriting Field Distributions & Sentinel Code Audit ---
+  • FICO Sentinel / Missing Count: 93 (0.01%)
+  • LTV  Sentinel / Missing Count: 29 (0.00%)
+  • DTI  Sentinel / Missing Count: 79,265 (4.99%)
+  • FICO Mean: 749.2 | Median: 758.0 | Min: 312 | Max: 839
+  • LTV  Mean: 73.3% | Median: 78.0% | Min: 2.0% | Max: 663.0%
+  • DTI  Mean: 34.1% | Median: 35.0% | Min: 1.0% | Max: 51.0%
+  • Note Rate Mean: 3.76% | Min: 2.25% | Max: 6.00%
+
+--- [5] Dynamic Performance & Recovery Fields Audit ---
+  • Loans Modified by Month 12: 5 (0.000%)
+  • Default Events with Populated Actual Loss: 82 / 8,759
+  • Mean Realized Dollar Loss: $25,859.90
+  • Max Realized Dollar Loss : $103,463.82
+
+================================================================================
+VERDICT: [PASSED ALL GATES] vintage_2016.parquet is production-ready for Stage 1 modeling.
+================================================================================
+
+================================================================================
+AUDITING FILE: vintage_2017.parquet (Identified Vintage: 2017 | Era: Post-Crisis CRT)
+================================================================================
+[*] Ingested Records: 1,286,813
+
+--- [1] Structural & Key Completeness ---
+ [PASS] 100% Unique Primary Keys (1,286,813 unique loans)
+
+--- [2] Forward 12M Credit Target Performance ---
+  • Realized Defaults : 5,599
+  • Default Rate (12M): 0.435%
+  • Expected Range    : [0.15%, 0.80%]
+ [PASS] Default rate conforms to Post-Crisis CRT historical distribution.
+
+  Target Attribution Breakdown:
+    - PERFORMING_OR_PREPAID   :  1,281,214 loans (0.0% y_target)
+    - DQ_GE_3                 :      5,514 loans (100.0% y_target)
+    - DQ_AND_ZERO_BALANCE     :         84 loans (100.0% y_target)
+    - ZERO_BALANCE_EVENT      :          1 loans (100.0% y_target)
+
+--- [3] Observation Time (t=12) State Cleanliness ---
+ [PASS] Observation snapshot is clean (zero pre-existing D90+ loans).
+ [PASS] Amortization constraint satisfied (snapshot UPB <= original UPB).
+
+--- [4] Underwriting Field Distributions & Sentinel Code Audit ---
+  • FICO Sentinel / Missing Count: 133 (0.01%)
+  • LTV  Sentinel / Missing Count: 24 (0.00%)
+  • DTI  Sentinel / Missing Count: 44,803 (3.48%)
+  • FICO Mean: 745.3 | Median: 753.0 | Min: 424 | Max: 843
+  • LTV  Mean: 75.2% | Median: 80.0% | Min: 2.0% | Max: 611.0%
+  • DTI  Mean: 35.1% | Median: 36.0% | Min: 1.0% | Max: 54.0%
+  • Note Rate Mean: 4.17% | Min: 2.25% | Max: 6.16%
+
+--- [5] Dynamic Performance & Recovery Fields Audit ---
+  • Loans Modified by Month 12: 4 (0.000%)
+  • Default Events with Populated Actual Loss: 80 / 5,599
+  • Mean Realized Dollar Loss: $23,395.61
+  • Max Realized Dollar Loss : $241,190.09
+
+================================================================================
+VERDICT: [PASSED ALL GATES] vintage_2017.parquet is production-ready for Stage 1 modeling.
+================================================================================
+
+################################################################################
+FINAL AUDIT SUMMARY: ALL 5 PARQUET VINTAGES PASSED GOVERNANCE CHECKS.
+Saved full report to: /Users/derrellquartey/Documents/SFLLD Modeling/data validation reports/audit_report_Post_Crisis_2013_2017_20261009_131657.txt
+################################################################################
+

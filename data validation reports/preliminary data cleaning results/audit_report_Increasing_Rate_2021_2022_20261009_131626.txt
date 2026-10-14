@@ -1,0 +1,94 @@
+Audit Execution Timestamp: 2026-10-09 13:16:26
+Target Input Path        : /Users/derrellquartey/Documents/SFLLD Modeling/parquet_output/Increasing_Rate_2021_2022
+Audit Report Log         : /Users/derrellquartey/Documents/SFLLD Modeling/data validation reports/audit_report_Increasing_Rate_2021_2022_20261009_131626.txt
+
+
+================================================================================
+AUDITING FILE: vintage_2021.parquet (Identified Vintage: 2021 | Era: Rate Shock Cohort)
+================================================================================
+[*] Ingested Records: 3,856,286
+
+--- [1] Structural & Key Completeness ---
+ [PASS] 100% Unique Primary Keys (3,856,286 unique loans)
+
+--- [2] Forward 12M Credit Target Performance ---
+  • Realized Defaults : 21,158
+  • Default Rate (12M): 0.549%
+  • Expected Range    : [0.10%, 1.50%]
+ [PASS] Default rate conforms to Rate Shock Cohort historical distribution.
+
+  Target Attribution Breakdown:
+    - PERFORMING_OR_PREPAID   :  3,835,128 loans (0.0% y_target)
+    - DQ_GE_3                 :     21,115 loans (100.0% y_target)
+    - DQ_AND_ZERO_BALANCE     :         43 loans (100.0% y_target)
+
+--- [3] Observation Time (t=12) State Cleanliness ---
+ [PASS] Observation snapshot is clean (zero pre-existing D90+ loans).
+ [PASS] Amortization constraint satisfied (snapshot UPB <= original UPB).
+
+--- [4] Underwriting Field Distributions & Sentinel Code Audit ---
+  • FICO Sentinel / Missing Count: 432 (0.01%)
+  • LTV  Sentinel / Missing Count: 0 (0.00%)
+  • DTI  Sentinel / Missing Count: 318 (0.01%)
+  • FICO Mean: 751.6 | Median: 761.0 | Min: 300 | Max: 850
+  • LTV  Mean: 69.2% | Median: 72.0% | Min: 2.0% | Max: 101.0%
+  • DTI  Mean: 33.9% | Median: 35.0% | Min: 1.0% | Max: 65.0%
+  • Note Rate Mean: 2.95% | Min: 1.50% | Max: 7.50%
+
+--- [5] Dynamic Performance & Recovery Fields Audit ---
+  • Loans Modified by Month 12: 0 (0.000%)
+  • Default Events with Populated Actual Loss: 37 / 21,158
+  • Mean Realized Dollar Loss: $10,040.38
+  • Max Realized Dollar Loss : $63,115.09
+
+================================================================================
+VERDICT: [PASSED ALL GATES] vintage_2021.parquet is production-ready for Stage 1 modeling.
+================================================================================
+
+================================================================================
+AUDITING FILE: vintage_2022.parquet (Identified Vintage: 2022 | Era: Rate Shock Cohort)
+================================================================================
+[*] Ingested Records: 1,505,909
+
+--- [1] Structural & Key Completeness ---
+ [PASS] 100% Unique Primary Keys (1,505,909 unique loans)
+
+--- [2] Forward 12M Credit Target Performance ---
+  • Realized Defaults : 14,957
+  • Default Rate (12M): 0.993%
+  • Expected Range    : [0.10%, 1.50%]
+ [PASS] Default rate conforms to Rate Shock Cohort historical distribution.
+
+  Target Attribution Breakdown:
+    - PERFORMING_OR_PREPAID   :  1,490,952 loans (0.0% y_target)
+    - DQ_GE_3                 :     14,918 loans (100.0% y_target)
+    - DQ_AND_ZERO_BALANCE     :         39 loans (100.0% y_target)
+
+--- [3] Observation Time (t=12) State Cleanliness ---
+ [PASS] Observation snapshot is clean (zero pre-existing D90+ loans).
+ [PASS] Amortization constraint satisfied (snapshot UPB <= original UPB).
+
+--- [4] Underwriting Field Distributions & Sentinel Code Audit ---
+  • FICO Sentinel / Missing Count: 291 (0.02%)
+  • LTV  Sentinel / Missing Count: 0 (0.00%)
+  • DTI  Sentinel / Missing Count: 248 (0.02%)
+  • FICO Mean: 744.0 | Median: 752.0 | Min: 300 | Max: 840
+  • LTV  Mean: 73.3% | Median: 78.0% | Min: 3.0% | Max: 158.0%
+  • DTI  Mean: 36.6% | Median: 38.0% | Min: 1.0% | Max: 65.0%
+  • Note Rate Mean: 4.72% | Min: 1.75% | Max: 9.50%
+
+--- [5] Dynamic Performance & Recovery Fields Audit ---
+  • Loans Modified by Month 12: 1 (0.000%)
+  • Default Events with Populated Actual Loss: 36 / 14,957
+  • Mean Realized Dollar Loss: $8,390.54
+  • Max Realized Dollar Loss : $37,633.10
+
+================================================================================
+VERDICT: [PASSED ALL GATES] vintage_2022.parquet is production-ready for Stage 1 modeling.
+================================================================================
+
+################################################################################
+FINAL AUDIT SUMMARY: ALL 2 PARQUET VINTAGES PASSED GOVERNANCE CHECKS.
+Saved full report to: /Users/derrellquartey/Documents/SFLLD Modeling/data validation reports/audit_report_Increasing_Rate_2021_2022_20261009_131626.txt
+################################################################################
+

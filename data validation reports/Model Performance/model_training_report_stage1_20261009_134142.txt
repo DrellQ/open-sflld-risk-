@@ -1,0 +1,81 @@
+================================================================================
+FREDDIE MAC SFLLD: STAGE 1 XGBOOST PRODUCTION TRAINING RUN
+================================================================================
+Run Timestamp       : 2026-10-09 13:41:42
+Report File Output  : /Users/derrellquartey/Documents/SFLLD Modeling/data validation reports/model_training_report_stage1_20261009_134142.txt
+
+[*] Ingesting Training Set (2013-2017) from 5 files...
+Loading 5 files...
+[*] Ingesting Out-Of-Time Test Set (2018-2019) from 2 files...
+Loading 2 files...
+
+--- Model Hyperparameters & Architecture ---
+  • Training Records     : 6,977,353
+  • Training Defaults    : 30,120 (0.4317%)
+  • OOT Records          : 2,501,051
+  • OOT Defaults         : 57,288 (2.2906%)
+  • Feature Count        : 21
+  • Monotone Constraints : 7 constrained features
+  • Scale Pos Weight     : 230.65
+
+[*] Commencing Gradient Boosting (Early stopping patience = 30)...
+[0]	train-auc:0.84140	train-logloss:0.67453	oot-auc:0.77381	oot-logloss:0.67590
+[25]	train-auc:0.86140	train-logloss:0.48310	oot-auc:0.79750	oot-logloss:0.51047
+[50]	train-auc:0.86979	train-logloss:0.43468	oot-auc:0.80227	oot-logloss:0.47098
+[75]	train-auc:0.87332	train-logloss:0.42010	oot-auc:0.80332	oot-logloss:0.45815
+[100]	train-auc:0.87594	train-logloss:0.41447	oot-auc:0.80399	oot-logloss:0.45643
+[125]	train-auc:0.87818	train-logloss:0.41156	oot-auc:0.80403	oot-logloss:0.45498
+[150]	train-auc:0.87990	train-logloss:0.40906	oot-auc:0.80315	oot-logloss:0.45290
+[175]	train-auc:0.88131	train-logloss:0.40747	oot-auc:0.80276	oot-logloss:0.45168
+[200]	train-auc:0.88319	train-logloss:0.40479	oot-auc:0.80246	oot-logloss:0.44980
+[225]	train-auc:0.88486	train-logloss:0.40274	oot-auc:0.80122	oot-logloss:0.44553
+[250]	train-auc:0.88689	train-logloss:0.40027	oot-auc:0.80035	oot-logloss:0.44220
+[275]	train-auc:0.88859	train-logloss:0.39790	oot-auc:0.79950	oot-logloss:0.43901
+[299]	train-auc:0.89030	train-logloss:0.39589	oot-auc:0.79841	oot-logloss:0.43648
+
+================================================================================
+STAGE 1 MODEL PERFORMANCE & VALIDATION REPORT
+================================================================================
+  Best Boosting Iteration : 299
+  Train ROC-AUC           : 0.8903  |  Train PR-AUC : 0.2309
+  OOT   ROC-AUC           : 0.7984  |  OOT   PR-AUC : 0.2417
+  OOT Brier Loss Score    : 0.13780
+================================================================================
+
+[*] Out-Of-Time (2018-2019) Credit Decile Breakdown:
+shape: (10, 9)
+┌────────┬────────────┬──────────┬───────────────────────┬───┬───────────┬───────────┬───────────────────────┬──────────────────────┐
+│ decile ┆ loan_count ┆ defaults ┆ observed_default_rate ┆ … ┆ min_score ┆ max_score ┆ default_capture_share ┆ cumulative_gains_pct │
+│ ---    ┆ ---        ┆ ---      ┆ ---                   ┆   ┆ ---       ┆ ---       ┆ ---                   ┆ ---                  │
+│ cat    ┆ u32        ┆ i32      ┆ f64                   ┆   ┆ f32       ┆ f32       ┆ f64                   ┆ f64                  │
+╞════════╪════════════╪══════════╪═══════════════════════╪═══╪═══════════╪═══════════╪═══════════════════════╪══════════════════════╡
+│ D1     ┆ 250105     ┆ 27027    ┆ 0.108063              ┆ … ┆ 0.637586  ┆ 0.999969  ┆ 0.471774              ┆ 47.177419            │
+│ D2     ┆ 250105     ┆ 8083     ┆ 0.032318              ┆ … ┆ 0.50654   ┆ 0.637586  ┆ 0.141094              ┆ 61.286831            │
+│ D3     ┆ 250105     ┆ 6042     ┆ 0.024158              ┆ … ┆ 0.406278  ┆ 0.50654   ┆ 0.105467              ┆ 71.833543            │
+│ D4     ┆ 250105     ┆ 4614     ┆ 0.018448              ┆ … ┆ 0.323257  ┆ 0.406278  ┆ 0.08054               ┆ 79.887586            │
+│ D5     ┆ 250105     ┆ 3573     ┆ 0.014286              ┆ … ┆ 0.251466  ┆ 0.323257  ┆ 0.062369              ┆ 86.124494            │
+│ D6     ┆ 250105     ┆ 2778     ┆ 0.011107              ┆ … ┆ 0.190296  ┆ 0.251466  ┆ 0.048492              ┆ 90.973677            │
+│ D7     ┆ 250105     ┆ 2085     ┆ 0.008336              ┆ … ┆ 0.13664   ┆ 0.190296  ┆ 0.036395              ┆ 94.613183            │
+│ D8     ┆ 250105     ┆ 1520     ┆ 0.006077              ┆ … ┆ 0.089652  ┆ 0.13664   ┆ 0.026533              ┆ 97.266443            │
+│ D9     ┆ 250105     ┆ 1073     ┆ 0.00429               ┆ … ┆ 0.04837   ┆ 0.089651  ┆ 0.01873               ┆ 99.139436            │
+│ D10    ┆ 250106     ┆ 493      ┆ 0.001971              ┆ … ┆ 0.000391  ┆ 0.04837   ┆ 0.008606              ┆ 100.0                │
+└────────┴────────────┴──────────┴───────────────────────┴───┴───────────┴───────────┴───────────────────────┴──────────────────────┘
+
+[*] Top Risk Drivers (Gain Attribution):
+  • snapshot_dq              : Gain =   90000.01  [Monotone: +1]
+  • credit_score             : Gain =   19453.82  [Monotone: -1]
+  • num_borrowers            : Gain =    8815.76  [Unconstrained]
+  • rate_delta               : Gain =    5317.57  [Unconstrained]
+  • upb_paydown_ratio        : Gain =    4423.54  [Monotone: +1]
+  • original_cltv            : Gain =    3884.43  [Monotone: +1]
+  • original_dti             : Gain =    3260.81  [Monotone: +1]
+  • original_ltv             : Gain =    1704.08  [Monotone: +1]
+  • original_interest_rate   : Gain =    1460.76  [Monotone: +1]
+  • loan_purpose             : Gain =    1106.06  [Unconstrained]
+  • property_type            : Gain =     940.65  [Unconstrained]
+  • snapshot_upb             : Gain =     857.61  [Unconstrained]
+
+[✔] Serialized model saved to models/xgboost_sflld_stage1.json
+[✔] Total pipeline execution time: 299.3s
+[✔] Full performance audit log saved to /Users/derrellquartey/Documents/SFLLD Modeling/data validation reports/model_training_report_stage1_20261009_134142.txt
+

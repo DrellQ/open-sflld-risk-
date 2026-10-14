@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 ================================================================================
 FREDDIE MAC SFLLD PHASE 2: MACRO STRESS TESTING & MONTE CARLO VaR PIPELINE

@@ -1,0 +1,43 @@
+================================================================================
+FREDDIE MAC SFLLD: CRT TRANCHE WATERFALL & ATTACHMENT SIMULATION
+================================================================================
+Run Timestamp    : 2026-10-09 14:24:18
+Report File Log  : /Users/derrellquartey/Documents/SFLLD Modeling/data validation reports/crt_tranche_waterfall_report_20261009_142418.txt
+
+[*] Ingesting model artifact: models/xgboost_sflld_stage1.json...
+[*] Ingesting Platt calibrator: models/platt_calibrator_stage1.joblib...
+[*] Ingesting Rate Shock Cohort (2021-2022) from 2 files...
+[*] Generating calibrated loan-level default probabilities...
+[*] Executing Monte Carlo simulation (20,000 iterations across 5,362,195 loans)...
+
+================================================================================
+CRT TRANCHE STRUCTURE & SIMULATED LOSS WATERFALL AUDIT
+================================================================================
+  Underlying Portfolio UPB : $1,510,142,115,840.00
+  Simulation Sample Size   : 20,000 paths
+  Downturn LGD Assumption  : μ = 33.3149%, σ = 23.3959%
+================================================================================
+shape: (5, 10)
+┌─────────────────────────┬────────────────┬────────────────┬───────────────┬───┬───────────────────┬─────────────────┬─────────────────┬──────────────────┐
+│ tranche                 ┆ attachment_pct ┆ detachment_pct ┆ thickness_pct ┆ … ┆ loss_severity_pct ┆ var_95_millions ┆ var_99_millions ┆ var_999_millions │
+│ ---                     ┆ ---            ┆ ---            ┆ ---           ┆   ┆ ---               ┆ ---             ┆ ---             ┆ ---              │
+│ str                     ┆ f64            ┆ f64            ┆ f64           ┆   ┆ f64               ┆ f64             ┆ f64             ┆ f64              │
+╞═════════════════════════╪════════════════╪════════════════╪═══════════════╪═══╪═══════════════════╪═════════════════╪═════════════════╪══════════════════╡
+│ Class B-2 (First Loss)  ┆ 0.0            ┆ 0.5            ┆ 0.5           ┆ … ┆ 99.999149         ┆ 7550.710579     ┆ 7550.710579     ┆ 7550.710579      │
+│ Class B-1 (Junior Sub)  ┆ 0.5            ┆ 1.5            ┆ 1.0           ┆ … ┆ 7.993081          ┆ 1832.209736     ┆ 2115.581221     ┆ 2391.812948      │
+│ Class M-2 (Mezzanine 2) ┆ 1.5            ┆ 3.0            ┆ 1.5           ┆ … ┆ 0.0               ┆ 0.0             ┆ 0.0             ┆ 0.0              │
+│ Class M-1 (Mezzanine 1) ┆ 3.0            ┆ 5.0            ┆ 2.0           ┆ … ┆ 0.0               ┆ 0.0             ┆ 0.0             ┆ 0.0              │
+│ Class A-H (Senior GSE)  ┆ 5.0            ┆ 100.0          ┆ 95.0          ┆ … ┆ 0.0               ┆ 0.0             ┆ 0.0             ┆ 0.0              │
+└─────────────────────────┴────────────────┴────────────────┴───────────────┴───┴───────────────────┴─────────────────┴─────────────────┴──────────────────┘
+
+--- Detailed Tranche Impairment Analysis ---
+  • Class B-2 (First Loss)    : Attach  0.0% | Detach   0.5% | Size: $   7.55B | Expected Loss: $ 7550.65M (100.00%) | 99.0% VaR Loss: $ 7550.71M
+  • Class B-1 (Junior Sub)    : Attach  0.5% | Detach   1.5% | Size: $  15.10B | Expected Loss: $ 1207.07M ( 7.99%) | 99.0% VaR Loss: $ 2115.58M
+  • Class M-2 (Mezzanine 2)   : Attach  1.5% | Detach   3.0% | Size: $  22.65B | Expected Loss: $    0.00M ( 0.00%) | 99.0% VaR Loss: $    0.00M
+  • Class M-1 (Mezzanine 1)   : Attach  3.0% | Detach   5.0% | Size: $  30.20B | Expected Loss: $    0.00M ( 0.00%) | 99.0% VaR Loss: $    0.00M
+  • Class A-H (Senior GSE)    : Attach  5.0% | Detach 100.0% | Size: $1434.64B | Expected Loss: $    0.00M ( 0.00%) | 99.0% VaR Loss: $    0.00M
+
+[✔] Visualization saved to: reports/figures/crt_tranche_loss_distribution.png
+[✔] Total execution time: 17.7s
+[✔] Persistent audit report written to: /Users/derrellquartey/Documents/SFLLD Modeling/data validation reports/crt_tranche_waterfall_report_20261009_142418.txt
+

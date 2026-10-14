@@ -1,0 +1,139 @@
+Audit Execution Timestamp: 2026-10-09 13:23:56
+Target Input Path        : /Users/derrellquartey/Documents/SFLLD Modeling/parquet_output/GFC_2006_2008
+Audit Report Log         : /Users/derrellquartey/Documents/SFLLD Modeling/data validation reports/audit_report_GFC_2006_2008_20261009_132356.txt
+
+
+================================================================================
+AUDITING FILE: vintage_2006.parquet (Identified Vintage: 2006 | Era: GFC Stress Anchor)
+================================================================================
+[*] Ingested Records: 1,061,281
+
+--- [1] Structural & Key Completeness ---
+ [PASS] 100% Unique Primary Keys (1,061,281 unique loans)
+
+--- [2] Forward 12M Credit Target Performance ---
+  • Realized Defaults : 18,717
+  • Default Rate (12M): 1.764%
+  • Expected Range    : [1.50%, 12.00%]
+ [PASS] Default rate conforms to GFC Stress Anchor historical distribution.
+
+  Target Attribution Breakdown:
+    - PERFORMING_OR_PREPAID   :  1,042,564 loans (0.0% y_target)
+    - DQ_GE_3                 :     17,615 loans (100.0% y_target)
+    - DQ_AND_ZERO_BALANCE     :      1,051 loans (100.0% y_target)
+    - ZERO_BALANCE_EVENT      :         51 loans (100.0% y_target)
+
+--- [3] Observation Time (t=12) State Cleanliness ---
+ [PASS] Observation snapshot is clean (zero pre-existing D90+ loans).
+ [PASS] Amortization constraint satisfied (snapshot UPB <= original UPB).
+
+--- [4] Underwriting Field Distributions & Sentinel Code Audit ---
+  • FICO Sentinel / Missing Count: 894 (0.08%) [Tolerance: <5.0%]
+  • LTV  Sentinel / Missing Count: 82 (0.01%) [Tolerance: <5.0%]
+  • DTI  Sentinel / Missing Count: 22,610 (2.13%) [Tolerance: <5.0%]
+  • FICO Mean: 725.0 | Median: 731.0 | Min: 300 | Max: 850 [Bounds: 500-780]
+  • LTV  Mean: 69.9% | Median: 77.0% | Min: 6.0% | Max: 103.0% [Bounds: 50-85%]
+  • DTI  Mean: 36.3% | Median: 36.0% | Min: 1.0% | Max: 65.0% [Bounds: 20-45%]
+  • Note Rate Mean: 6.31% | Min: 2.00% | Max: 50.00%
+
+--- [5] Dynamic Performance & Recovery Fields Audit ---
+  • Loans Modified by Month 12: 96 (0.009%)
+  • Default Events with Populated Actual Loss: 955 / 18,717
+  • Mean Realized Dollar Loss: $60,420.99
+  • Max Realized Dollar Loss : $255,755.08
+
+================================================================================
+VERDICT: [PASSED ALL GATES] vintage_2006.parquet is production-ready for Stage 1 modeling.
+================================================================================
+
+================================================================================
+AUDITING FILE: vintage_2007.parquet (Identified Vintage: 2007 | Era: GFC Stress Anchor)
+================================================================================
+[*] Ingested Records: 1,083,743
+
+--- [1] Structural & Key Completeness ---
+ [PASS] 100% Unique Primary Keys (1,083,743 unique loans)
+
+--- [2] Forward 12M Credit Target Performance ---
+  • Realized Defaults : 39,747
+  • Default Rate (12M): 3.668%
+  • Expected Range    : [1.50%, 12.00%]
+ [PASS] Default rate conforms to GFC Stress Anchor historical distribution.
+
+  Target Attribution Breakdown:
+    - PERFORMING_OR_PREPAID   :  1,043,996 loans (0.0% y_target)
+    - DQ_GE_3                 :     37,727 loans (100.0% y_target)
+    - DQ_AND_ZERO_BALANCE     :      1,897 loans (100.0% y_target)
+    - ZERO_BALANCE_EVENT      :        123 loans (100.0% y_target)
+
+--- [3] Observation Time (t=12) State Cleanliness ---
+ [PASS] Observation snapshot is clean (zero pre-existing D90+ loans).
+ [PASS] Amortization constraint satisfied (snapshot UPB <= original UPB).
+
+--- [4] Underwriting Field Distributions & Sentinel Code Audit ---
+  • FICO Sentinel / Missing Count: 952 (0.09%) [Tolerance: <5.0%]
+  • LTV  Sentinel / Missing Count: 96 (0.01%) [Tolerance: <5.0%]
+  • DTI  Sentinel / Missing Count: 24,968 (2.30%) [Tolerance: <5.0%]
+  • FICO Mean: 726.1 | Median: 732.0 | Min: 300 | Max: 850 [Bounds: 500-780]
+  • LTV  Mean: 71.4% | Median: 77.0% | Min: 6.0% | Max: 103.0% [Bounds: 50-85%]
+  • DTI  Mean: 36.5% | Median: 36.0% | Min: 1.0% | Max: 65.0% [Bounds: 20-45%]
+  • Note Rate Mean: 6.25% | Min: 2.00% | Max: 42.50%
+
+--- [5] Dynamic Performance & Recovery Fields Audit ---
+  • Loans Modified by Month 12: 99 (0.009%)
+  • Default Events with Populated Actual Loss: 1,672 / 39,747
+  • Mean Realized Dollar Loss: $68,068.00
+  • Max Realized Dollar Loss : $661,772.31
+
+================================================================================
+VERDICT: [PASSED ALL GATES] vintage_2007.parquet is production-ready for Stage 1 modeling.
+================================================================================
+
+================================================================================
+AUDITING FILE: vintage_2008.parquet (Identified Vintage: 2008 | Era: GFC Stress Anchor)
+================================================================================
+[*] Ingested Records: 1,012,311
+
+--- [1] Structural & Key Completeness ---
+ [PASS] 100% Unique Primary Keys (1,012,311 unique loans)
+
+--- [2] Forward 12M Credit Target Performance ---
+  • Realized Defaults : 30,620
+  • Default Rate (12M): 3.025%
+  • Expected Range    : [1.50%, 12.00%]
+ [PASS] Default rate conforms to GFC Stress Anchor historical distribution.
+
+  Target Attribution Breakdown:
+    - PERFORMING_OR_PREPAID   :    981,691 loans (0.0% y_target)
+    - DQ_GE_3                 :     29,165 loans (100.0% y_target)
+    - DQ_AND_ZERO_BALANCE     :      1,371 loans (100.0% y_target)
+    - ZERO_BALANCE_EVENT      :         84 loans (100.0% y_target)
+
+--- [3] Observation Time (t=12) State Cleanliness ---
+ [PASS] Observation snapshot is clean (zero pre-existing D90+ loans).
+ [PASS] Amortization constraint satisfied (snapshot UPB <= original UPB).
+
+--- [4] Underwriting Field Distributions & Sentinel Code Audit ---
+  • FICO Sentinel / Missing Count: 776 (0.08%) [Tolerance: <5.0%]
+  • LTV  Sentinel / Missing Count: 49 (0.00%) [Tolerance: <5.0%]
+  • DTI  Sentinel / Missing Count: 22,484 (2.22%) [Tolerance: <5.0%]
+  • FICO Mean: 740.0 | Median: 749.0 | Min: 300 | Max: 850 [Bounds: 500-780]
+  • LTV  Mean: 70.2% | Median: 75.0% | Min: 6.0% | Max: 103.0% [Bounds: 50-85%]
+  • DTI  Mean: 36.2% | Median: 36.0% | Min: 1.0% | Max: 65.0% [Bounds: 20-45%]
+  • Note Rate Mean: 5.92% | Min: 0.02% | Max: 62.50%
+
+--- [5] Dynamic Performance & Recovery Fields Audit ---
+  • Loans Modified by Month 12: 48 (0.005%)
+  • Default Events with Populated Actual Loss: 1,221 / 30,620
+  • Mean Realized Dollar Loss: $63,848.31
+  • Max Realized Dollar Loss : $364,970.78
+
+================================================================================
+VERDICT: [PASSED ALL GATES] vintage_2008.parquet is production-ready for Stage 1 modeling.
+================================================================================
+
+################################################################################
+FINAL AUDIT SUMMARY: ALL 3 PARQUET VINTAGES PASSED GOVERNANCE CHECKS.
+Saved full report to: /Users/derrellquartey/Documents/SFLLD Modeling/data validation reports/audit_report_GFC_2006_2008_20261009_132356.txt
+################################################################################
+
