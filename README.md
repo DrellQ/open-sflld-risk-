@@ -108,11 +108,11 @@
   * Computes tranche Expected Loss, percentage loss severity, and 99.0% VaR.
 
 ### 7. `src/universal_sflld_etl.py`
-* **Purpose**: takes the raw origination and performance data directly from the compreszed zip files and transfers them into Parquet format using a zero-disk in-memory streaming pipeline for better performance and reduced disk size. 
+* **Purpose**: takes the raw origination and performance data directly from the compreszed zip files and transfers them into Parquet format using a zero-disk in-memory streaming pipeline for better performance and reduced disk size. Raw performance files alone can exceed 2gb per quarter. Each year after processing is ~100mb or less.
 
 ### 8. `src/parquet_validation.py`
 * **Purpose**: Validates schema compliance, sentinel codes, distribution bounds,
-and credit target mechanics prior to XGBoost and Vasicek correlation training.
+and credit target mechanics prior to XGBoost training.
 
 
 ---
